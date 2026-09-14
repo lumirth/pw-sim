@@ -1,0 +1,18 @@
+{
+  "name": "pokewalker-living-rebuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "python3 build.py",
+    "test": "node verify.mjs",
+    "start": "python3 serve.py"
+  },
+  "keywords": [],
+  "type": "module",
+  "dependencies": {
+    "cannon-es": "^0.20.0",
+    "three": "0.186.0"
+  },
+  "private": true
+}

@@ -1,0 +1,200 @@
+{
+  "target": {
+    "size": 49152,
+    "sha256": "f9e210a3b74afbbd12c5a66a51cc05cb9fbac986805ff0a3bfb4be6074d15607"
+  },
+  "sources": [
+    {
+      "file": "state.c",
+      "flags": []
+    },
+    {
+      "file": "rominfo.c",
+      "flags": [
+        "-section=const=M"
+      ]
+    },
+    {
+      "file": "intprg.c",
+      "flags": []
+    },
+    {
+      "file": "resetprg.c",
+      "flags": []
+    },
+    {
+      "file": "irc.c",
+      "flags": []
+    },
+    {
+      "file": "clear.c",
+      "flags": []
+    },
+    {
+      "file": "common.c",
+      "flags": []
+    },
+    {
+      "file": "accelerometer.c",
+      "flags": []
+    },
+    {
+      "file": "battery.c",
+      "flags": []
+    },
+    {
+      "file": "battle.c",
+      "flags": []
+    },
+    {
+      "file": "beep.c",
+      "flags": []
+    },
+    {
+      "file": "graphics.c",
+      "flags": []
+    },
+    {
+      "file": "discard.c",
+      "flags": []
+    },
+    {
+      "file": "demo.c",
+      "flags": []
+    },
+    {
+      "file": "diary.c",
+      "flags": []
+    },
+    {
+      "file": "dowsing.c",
+      "flags": []
+    },
+    {
+      "file": "m95512.c",
+      "flags": []
+    },
+    {
+      "file": "eeprom.c",
+      "flags": []
+    },
+    {
+      "file": "factory.c",
+      "flags": []
+    },
+    {
+      "file": "feeling.c",
+      "flags": []
+    },
+    {
+      "file": "feeling_present.c",
+      "flags": []
+    },
+    {
+      "file": "fft.c",
+      "flags": [
+        "-speed=shift,loop=2"
+      ]
+    },
+    {
+      "file": "friend.c",
+      "flags": []
+    },
+    {
+      "file": "home.c",
+      "flags": []
+    },
+    {
+      "file": "home_setting.c",
+      "flags": []
+    },
+    {
+      "file": "interface.c",
+      "flags": []
+    },
+    {
+      "file": "lcd.c",
+      "flags": []
+    },
+    {
+      "file": "list.c",
+      "flags": []
+    },
+    {
+      "file": "motion.c",
+      "flags": [
+        "-speed"
+      ]
+    },
+    {
+      "file": "option.c",
+      "flags": []
+    },
+    {
+      "file": "pad.c",
+      "flags": []
+    },
+    {
+      "file": "poketrace.c",
+      "flags": []
+    },
+    {
+      "file": "power.c",
+      "flags": []
+    },
+    {
+      "file": "rtc.c",
+      "flags": []
+    },
+    {
+      "file": "selftest.c",
+      "flags": []
+    },
+    {
+      "file": "selftest_data.c",
+      "flags": []
+    },
+    {
+      "file": "setup.c",
+      "flags": []
+    },
+    {
+      "file": "user.c",
+      "flags": []
+    },
+    {
+      "file": "viewer.c",
+      "flags": []
+    },
+    {
+      "file": "dbsct.c",
+      "flags": []
+    }
+  ],
+  "compiler_flags": [
+    "-cpu=300HN",
+    "-lang=c",
+    "-outcode=sjis",
+    "-nolist",
+    "-chgincpath",
+    "-nologo",
+    "-optimize=1",
+    "-regparam=2",
+    "-stack=medium",
+    "-code=machinecode",
+    "-goptimize"
+  ],
+  "linker_options": [
+    "nodebug",
+    "rom D=R",
+    "optimize symbol_delete,register,same_code",
+    "start M,PIntPRG,P,C,C$DSEC,C$BSEC,D/00050",
+    "start B/0F780",
+    "start R/0FEF0",
+    "start B_NOINIT,S/0FEF4"
+  ],
+  "include_dirs": [
+    "include",
+    "generated"
+  ]
+}

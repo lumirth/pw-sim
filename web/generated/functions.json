@@ -1,0 +1,1538 @@
+[
+  {
+    "id": 0,
+    "name": "BattleInit",
+    "file": "src/battle.c",
+    "line": 61
+  },
+  {
+    "id": 1,
+    "name": "ProcessTurn",
+    "file": "src/battle.c",
+    "line": 81
+  },
+  {
+    "id": 2,
+    "name": "CommitCapture",
+    "file": "src/battle.c",
+    "line": 150
+  },
+  {
+    "id": 3,
+    "name": "CaptureRoll",
+    "file": "src/battle.c",
+    "line": 240
+  },
+  {
+    "id": 4,
+    "name": "BattleUpdate",
+    "file": "src/battle.c",
+    "line": 256
+  },
+  {
+    "id": 5,
+    "name": "BattleRender",
+    "file": "src/battle.c",
+    "line": 556
+  },
+  {
+    "id": 6,
+    "name": "BeepHasScore",
+    "file": "src/beep.c",
+    "line": 33
+  },
+  {
+    "id": 7,
+    "name": "BeepInit",
+    "file": "src/beep.c",
+    "line": 41
+  },
+  {
+    "id": 8,
+    "name": "BeepLoadScore",
+    "file": "src/beep.c",
+    "line": 66
+  },
+  {
+    "id": 9,
+    "name": "BeepSelectScore",
+    "file": "src/beep.c",
+    "line": 108
+  },
+  {
+    "id": 10,
+    "name": "BeepEnableTimer",
+    "file": "src/beep.c",
+    "line": 115
+  },
+  {
+    "id": 11,
+    "name": "BeepDisableTimer",
+    "file": "src/beep.c",
+    "line": 128
+  },
+  {
+    "id": 12,
+    "name": "BeepSetOutputMode",
+    "file": "src/beep.c",
+    "line": 137
+  },
+  {
+    "id": 13,
+    "name": "BeepSetPeriod",
+    "file": "src/beep.c",
+    "line": 152
+  },
+  {
+    "id": 14,
+    "name": "BeepAdvance",
+    "file": "src/beep.c",
+    "line": 176
+  },
+  {
+    "id": 15,
+    "name": "TimerWInterrupt",
+    "file": "src/beep.c",
+    "line": 257
+  },
+  {
+    "id": 16,
+    "name": "ClearReturnInventory",
+    "file": "src/clear.c",
+    "line": 9
+  },
+  {
+    "id": 17,
+    "name": "ClearDiaryActions",
+    "file": "src/clear.c",
+    "line": 21
+  },
+  {
+    "id": 18,
+    "name": "ClearWeeklySteps",
+    "file": "src/clear.c",
+    "line": 36
+  },
+  {
+    "id": 19,
+    "name": "RasterBorder",
+    "file": "src/common.c",
+    "line": 20
+  },
+  {
+    "id": 20,
+    "name": "RenderHeldPokemon",
+    "file": "src/common.c",
+    "line": 52
+  },
+  {
+    "id": 21,
+    "name": "RenderHeldPokemonMirrored",
+    "file": "src/common.c",
+    "line": 65
+  },
+  {
+    "id": 22,
+    "name": "RenderEnemyPokemon",
+    "file": "src/common.c",
+    "line": 79
+  },
+  {
+    "id": 23,
+    "name": "RenderPeerPokemon",
+    "file": "src/common.c",
+    "line": 95
+  },
+  {
+    "id": 24,
+    "name": "RenderHeldName",
+    "file": "src/common.c",
+    "line": 109
+  },
+  {
+    "id": 25,
+    "name": "RenderPeerName",
+    "file": "src/common.c",
+    "line": 127
+  },
+  {
+    "id": 26,
+    "name": "RenderDistributionName",
+    "file": "src/common.c",
+    "line": 140
+  },
+  {
+    "id": 27,
+    "name": "RenderBonusName",
+    "file": "src/common.c",
+    "line": 158
+  },
+  {
+    "id": 28,
+    "name": "RenderTreasure",
+    "file": "src/common.c",
+    "line": 176
+  },
+  {
+    "id": 29,
+    "name": "RenderEnemyName",
+    "file": "src/common.c",
+    "line": 188
+  },
+  {
+    "id": 30,
+    "name": "RenderCourseItem",
+    "file": "src/common.c",
+    "line": 207
+  },
+  {
+    "id": 31,
+    "name": "RenderDistributionItem",
+    "file": "src/common.c",
+    "line": 224
+  },
+  {
+    "id": 32,
+    "name": "RenderItemCheckTreasure",
+    "file": "src/common.c",
+    "line": 236
+  },
+  {
+    "id": 33,
+    "name": "RenderItemCheckPresent",
+    "file": "src/common.c",
+    "line": 249
+  },
+  {
+    "id": 34,
+    "name": "StatusSetReceived",
+    "file": "src/common.c",
+    "line": 264
+  },
+  {
+    "id": 35,
+    "name": "StatusHasReceived",
+    "file": "src/common.c",
+    "line": 280
+  },
+  {
+    "id": 36,
+    "name": "RasterShift",
+    "file": "src/common.c",
+    "line": 298
+  },
+  {
+    "id": 37,
+    "name": "PokemonSlotFindEmpty",
+    "file": "src/common.c",
+    "line": 328
+  },
+  {
+    "id": 38,
+    "name": "CourseItemNumber",
+    "file": "src/common.c",
+    "line": 342
+  },
+  {
+    "id": 39,
+    "name": "ItemSlotFindEmpty",
+    "file": "src/common.c",
+    "line": 354
+  },
+  {
+    "id": 40,
+    "name": "WattsAdd",
+    "file": "src/common.c",
+    "line": 368
+  },
+  {
+    "id": 41,
+    "name": "RenderDecoratedNumber",
+    "file": "src/common.c",
+    "line": 380
+  },
+  {
+    "id": 42,
+    "name": "RenderDecimal",
+    "file": "src/common.c",
+    "line": 404
+  },
+  {
+    "id": 43,
+    "name": "RenderMessage",
+    "file": "src/common.c",
+    "line": 458
+  },
+  {
+    "id": 44,
+    "name": "RasterMirror",
+    "file": "src/common.c",
+    "line": 495
+  },
+  {
+    "id": 45,
+    "name": "RenderBattery",
+    "file": "src/common.c",
+    "line": 527
+  },
+  {
+    "id": 46,
+    "name": "RasterMasked",
+    "file": "src/common.c",
+    "line": 547
+  },
+  {
+    "id": 47,
+    "name": "WatchdogDisable",
+    "file": "src/common.c",
+    "line": 591
+  },
+  {
+    "id": 48,
+    "name": "WatchdogStart",
+    "file": "src/common.c",
+    "line": 599
+  },
+  {
+    "id": 49,
+    "name": "ScratchReset",
+    "file": "src/common.c",
+    "line": 611
+  },
+  {
+    "id": 50,
+    "name": "StepPacingTick",
+    "file": "src/common.c",
+    "line": 638
+  },
+  {
+    "id": 51,
+    "name": "ClockSleep",
+    "file": "src/common.c",
+    "line": 674
+  },
+  {
+    "id": 52,
+    "name": "WatchdogService",
+    "file": "src/common.c",
+    "line": 690
+  },
+  {
+    "id": 53,
+    "name": "LowClockDelay",
+    "file": "src/common.c",
+    "line": 699
+  },
+  {
+    "id": 54,
+    "name": "RandomSeed",
+    "file": "src/common.c",
+    "line": 716
+  },
+  {
+    "id": 55,
+    "name": "RandomNext",
+    "file": "src/common.c",
+    "line": 722
+  },
+  {
+    "id": 56,
+    "name": "BulkDecode",
+    "file": "src/common.c",
+    "line": 738
+  },
+  {
+    "id": 57,
+    "name": "BallDrop",
+    "file": "src/demo.c",
+    "line": 42
+  },
+  {
+    "id": 58,
+    "name": "BallSparkle",
+    "file": "src/demo.c",
+    "line": 63
+  },
+  {
+    "id": 59,
+    "name": "ArrivalCloud",
+    "file": "src/demo.c",
+    "line": 88
+  },
+  {
+    "id": 60,
+    "name": "ArrivalPokemon",
+    "file": "src/demo.c",
+    "line": 106
+  },
+  {
+    "id": 61,
+    "name": "ArrivalComplete",
+    "file": "src/demo.c",
+    "line": 115
+  },
+  {
+    "id": 62,
+    "name": "RewardInfo",
+    "file": "src/demo.c",
+    "line": 130
+  },
+  {
+    "id": 63,
+    "name": "WalkStartUpdate",
+    "file": "src/demo.c",
+    "line": 200
+  },
+  {
+    "id": 64,
+    "name": "WalkStartRender",
+    "file": "src/demo.c",
+    "line": 231
+  },
+  {
+    "id": 65,
+    "name": "EventRewardUpdate",
+    "file": "src/demo.c",
+    "line": 253
+  },
+  {
+    "id": 66,
+    "name": "EventRewardRender",
+    "file": "src/demo.c",
+    "line": 323
+  },
+  {
+    "id": 67,
+    "name": "DeparturePokemon",
+    "file": "src/demo.c",
+    "line": 344
+  },
+  {
+    "id": 68,
+    "name": "DepartureCloud",
+    "file": "src/demo.c",
+    "line": 352
+  },
+  {
+    "id": 69,
+    "name": "DepartureAfterimage",
+    "file": "src/demo.c",
+    "line": 368
+  },
+  {
+    "id": 70,
+    "name": "DepartureComplete",
+    "file": "src/demo.c",
+    "line": 387
+  },
+  {
+    "id": 71,
+    "name": "CommunicationComplete",
+    "file": "src/demo.c",
+    "line": 402
+  },
+  {
+    "id": 72,
+    "name": "WalkEndUpdate",
+    "file": "src/demo.c",
+    "line": 422
+  },
+  {
+    "id": 73,
+    "name": "WalkEndRender",
+    "file": "src/demo.c",
+    "line": 458
+  },
+  {
+    "id": 74,
+    "name": "DiaryAppend",
+    "file": "src/diary.c",
+    "line": 16
+  },
+  {
+    "id": 75,
+    "name": "DiscardInit",
+    "file": "src/discard.c",
+    "line": 14
+  },
+  {
+    "id": 76,
+    "name": "ReplacePokemon",
+    "file": "src/discard.c",
+    "line": 30
+  },
+  {
+    "id": 77,
+    "name": "ReplaceItem",
+    "file": "src/discard.c",
+    "line": 59
+  },
+  {
+    "id": 78,
+    "name": "DiscardUpdate",
+    "file": "src/discard.c",
+    "line": 80
+  },
+  {
+    "id": 79,
+    "name": "SelectedPokemon",
+    "file": "src/discard.c",
+    "line": 112
+  },
+  {
+    "id": 80,
+    "name": "SelectedItem",
+    "file": "src/discard.c",
+    "line": 136
+  },
+  {
+    "id": 81,
+    "name": "DiscardRender",
+    "file": "src/discard.c",
+    "line": 159
+  },
+  {
+    "id": 82,
+    "name": "DowsingInit",
+    "file": "src/dowsing.c",
+    "line": 35
+  },
+  {
+    "id": 83,
+    "name": "DowsingUpdate",
+    "file": "src/dowsing.c",
+    "line": 47
+  },
+  {
+    "id": 84,
+    "name": "DistributeItemRead",
+    "file": "src/dowsing.c",
+    "line": 147
+  },
+  {
+    "id": 85,
+    "name": "DistributeItemWrite",
+    "file": "src/dowsing.c",
+    "line": 155
+  },
+  {
+    "id": 86,
+    "name": "TryBonusItem",
+    "file": "src/dowsing.c",
+    "line": 164
+  },
+  {
+    "id": 87,
+    "name": "RollItem",
+    "file": "src/dowsing.c",
+    "line": 225
+  },
+  {
+    "id": 88,
+    "name": "DrawGrassField",
+    "file": "src/dowsing.c",
+    "line": 262
+  },
+  {
+    "id": 89,
+    "name": "DowsingRender",
+    "file": "src/dowsing.c",
+    "line": 309
+  },
+  {
+    "id": 90,
+    "name": "EepromMirrorWrite",
+    "file": "src/eeprom.c",
+    "line": 5
+  },
+  {
+    "id": 91,
+    "name": "EepromMirrorRead",
+    "file": "src/eeprom.c",
+    "line": 25
+  },
+  {
+    "id": 92,
+    "name": "BootSelfTest",
+    "file": "src/factory.c",
+    "line": 33
+  },
+  {
+    "id": 93,
+    "name": "AutoGeneratePokemon",
+    "file": "src/feeling.c",
+    "line": 27
+  },
+  {
+    "id": 94,
+    "name": "SocialApply",
+    "file": "src/feeling.c",
+    "line": 102
+  },
+  {
+    "id": 95,
+    "name": "SocialUpdate",
+    "file": "src/feeling_present.c",
+    "line": 28
+  },
+  {
+    "id": 96,
+    "name": "SocialRender",
+    "file": "src/feeling_present.c",
+    "line": 50
+  },
+  {
+    "id": 97,
+    "name": "SocialOfferCheck",
+    "file": "src/feeling_present.c",
+    "line": 102
+  },
+  {
+    "id": 98,
+    "name": "FftAccumulate",
+    "file": "src/fft.c",
+    "line": 17
+  },
+  {
+    "id": 99,
+    "name": "PeerFinalize",
+    "file": "src/friend.c",
+    "line": 72
+  },
+  {
+    "id": 100,
+    "name": "PeerUpdate",
+    "file": "src/friend.c",
+    "line": 87
+  },
+  {
+    "id": 101,
+    "name": "ResolveGift",
+    "file": "src/friend.c",
+    "line": 94
+  },
+  {
+    "id": 102,
+    "name": "MusicNote",
+    "file": "src/friend.c",
+    "line": 199
+  },
+  {
+    "id": 103,
+    "name": "PeerRender",
+    "file": "src/friend.c",
+    "line": 219
+  },
+  {
+    "id": 104,
+    "name": "SeenPeer",
+    "file": "src/friend.c",
+    "line": 330
+  },
+  {
+    "id": 105,
+    "name": "ShiftPeerRecords",
+    "file": "src/friend.c",
+    "line": 360
+  },
+  {
+    "id": 106,
+    "name": "AppendPeerDiary",
+    "file": "src/friend.c",
+    "line": 382
+  },
+  {
+    "id": 107,
+    "name": "InstallTask",
+    "file": "src/home.c",
+    "line": 34
+  },
+  {
+    "id": 108,
+    "name": "TryBeginIr",
+    "file": "src/home.c",
+    "line": 44
+  },
+  {
+    "id": 109,
+    "name": "SetView",
+    "file": "src/home.c",
+    "line": 72
+  },
+  {
+    "id": 110,
+    "name": "RenderLargePokemon",
+    "file": "src/home.c",
+    "line": 80
+  },
+  {
+    "id": 111,
+    "name": "HomeInit",
+    "file": "src/home.c",
+    "line": 102
+  },
+  {
+    "id": 112,
+    "name": "HomeUpdate",
+    "file": "src/home.c",
+    "line": 115
+  },
+  {
+    "id": 113,
+    "name": "RenderFeeling",
+    "file": "src/home.c",
+    "line": 166
+  },
+  {
+    "id": 114,
+    "name": "RenderCourseBackground",
+    "file": "src/home.c",
+    "line": 181
+  },
+  {
+    "id": 115,
+    "name": "HomeEntryAdvance",
+    "file": "src/home.c",
+    "line": 199
+  },
+  {
+    "id": 116,
+    "name": "HomeOscillationAdvance",
+    "file": "src/home.c",
+    "line": 239
+  },
+  {
+    "id": 117,
+    "name": "HomeRender",
+    "file": "src/home.c",
+    "line": 275
+  },
+  {
+    "id": 118,
+    "name": "SettingsInit",
+    "file": "src/home_setting.c",
+    "line": 21
+  },
+  {
+    "id": 119,
+    "name": "SettingsNavigate",
+    "file": "src/home_setting.c",
+    "line": 29
+  },
+  {
+    "id": 120,
+    "name": "SettingsVolume",
+    "file": "src/home_setting.c",
+    "line": 53
+  },
+  {
+    "id": 121,
+    "name": "SettingsContrast",
+    "file": "src/home_setting.c",
+    "line": 76
+  },
+  {
+    "id": 122,
+    "name": "SettingsUpdate",
+    "file": "src/home_setting.c",
+    "line": 101
+  },
+  {
+    "id": 123,
+    "name": "SettingsRender",
+    "file": "src/home_setting.c",
+    "line": 136
+  },
+  {
+    "id": 124,
+    "name": "RenderUnregisteredHome",
+    "file": "src/interface.c",
+    "line": 52
+  },
+  {
+    "id": 125,
+    "name": "RenderUnregisteredResult",
+    "file": "src/interface.c",
+    "line": 97
+  },
+  {
+    "id": 126,
+    "name": "RenderIrRomFrame",
+    "file": "src/interface.c",
+    "line": 130
+  },
+  {
+    "id": 127,
+    "name": "RenderIrUploadedFrame",
+    "file": "src/interface.c",
+    "line": 161
+  },
+  {
+    "id": 128,
+    "name": "RenderIrResult",
+    "file": "src/interface.c",
+    "line": 180
+  },
+  {
+    "id": 129,
+    "name": "ViewUpdate",
+    "file": "src/interface.c",
+    "line": 223
+  },
+  {
+    "id": 130,
+    "name": "ViewRender",
+    "file": "src/interface.c",
+    "line": 300
+  },
+  {
+    "id": 131,
+    "name": "RenderStepCount",
+    "file": "src/interface.c",
+    "line": 382
+  },
+  {
+    "id": 132,
+    "name": "CaptureSample",
+    "file": "src/interface.c",
+    "line": 478
+  },
+  {
+    "id": 133,
+    "name": "MainTick",
+    "file": "src/interface.c",
+    "line": 504
+  },
+  {
+    "id": 134,
+    "name": "BeepTick",
+    "file": "src/interface.c",
+    "line": 574
+  },
+  {
+    "id": 135,
+    "name": "NMIInterrupt",
+    "file": "src/intprg.c",
+    "line": 9
+  },
+  {
+    "id": 136,
+    "name": "TRAPA0Interrupt",
+    "file": "src/intprg.c",
+    "line": 14
+  },
+  {
+    "id": 137,
+    "name": "TRAPA1Interrupt",
+    "file": "src/intprg.c",
+    "line": 19
+  },
+  {
+    "id": 138,
+    "name": "TRAPA2Interrupt",
+    "file": "src/intprg.c",
+    "line": 24
+  },
+  {
+    "id": 139,
+    "name": "TRAPA3Interrupt",
+    "file": "src/intprg.c",
+    "line": 29
+  },
+  {
+    "id": 140,
+    "name": "DirectTransitionInterrupt",
+    "file": "src/intprg.c",
+    "line": 34
+  },
+  {
+    "id": 141,
+    "name": "Comparator0Interrupt",
+    "file": "src/intprg.c",
+    "line": 39
+  },
+  {
+    "id": 142,
+    "name": "Comparator1Interrupt",
+    "file": "src/intprg.c",
+    "line": 44
+  },
+  {
+    "id": 143,
+    "name": "RtcWeekInterrupt",
+    "file": "src/intprg.c",
+    "line": 49
+  },
+  {
+    "id": 144,
+    "name": "RtcFreeRunningInterrupt",
+    "file": "src/intprg.c",
+    "line": 54
+  },
+  {
+    "id": 145,
+    "name": "WatchdogInterrupt",
+    "file": "src/intprg.c",
+    "line": 59
+  },
+  {
+    "id": 146,
+    "name": "EventOverflowInterrupt",
+    "file": "src/intprg.c",
+    "line": 64
+  },
+  {
+    "id": 147,
+    "name": "SsuI2cInterrupt",
+    "file": "src/intprg.c",
+    "line": 69
+  },
+  {
+    "id": 148,
+    "name": "RasterOr",
+    "file": "src/lcd.c",
+    "line": 16
+  },
+  {
+    "id": 149,
+    "name": "DisplaySend",
+    "file": "src/lcd.c",
+    "line": 53
+  },
+  {
+    "id": 150,
+    "name": "DisplayWait",
+    "file": "src/lcd.c",
+    "line": 65
+  },
+  {
+    "id": 151,
+    "name": "DisplayInit",
+    "file": "src/lcd.c",
+    "line": 92
+  },
+  {
+    "id": 152,
+    "name": "DisplaySetContrast",
+    "file": "src/lcd.c",
+    "line": 135
+  },
+  {
+    "id": 153,
+    "name": "DisplayAddress",
+    "file": "src/lcd.c",
+    "line": 172
+  },
+  {
+    "id": 154,
+    "name": "DisplayToggleBank",
+    "file": "src/lcd.c",
+    "line": 194
+  },
+  {
+    "id": 155,
+    "name": "DisplaySelectBank",
+    "file": "src/lcd.c",
+    "line": 218
+  },
+  {
+    "id": 156,
+    "name": "DisplayFill",
+    "file": "src/lcd.c",
+    "line": 249
+  },
+  {
+    "id": 157,
+    "name": "DisplaySetPosition",
+    "file": "src/lcd.c",
+    "line": 338
+  },
+  {
+    "id": 158,
+    "name": "DisplayFillRect",
+    "file": "src/lcd.c",
+    "line": 353
+  },
+  {
+    "id": 159,
+    "name": "DisplayExitPowerSave",
+    "file": "src/lcd.c",
+    "line": 417
+  },
+  {
+    "id": 160,
+    "name": "DisplayEnterPowerSave",
+    "file": "src/lcd.c",
+    "line": 429
+  },
+  {
+    "id": 161,
+    "name": "DisplayClear",
+    "file": "src/lcd.c",
+    "line": 442
+  },
+  {
+    "id": 162,
+    "name": "DisplayBlit",
+    "file": "src/lcd.c",
+    "line": 494
+  },
+  {
+    "id": 163,
+    "name": "DisplayWriteSpan",
+    "file": "src/lcd.c",
+    "line": 600
+  },
+  {
+    "id": 164,
+    "name": "DisplayText",
+    "file": "src/lcd.c",
+    "line": 701
+  },
+  {
+    "id": 165,
+    "name": "DisplayFrame45",
+    "file": "src/lcd.c",
+    "line": 761
+  },
+  {
+    "id": 166,
+    "name": "DisplayFrame67",
+    "file": "src/lcd.c",
+    "line": 852
+  },
+  {
+    "id": 167,
+    "name": "DisplayRule",
+    "file": "src/lcd.c",
+    "line": 937
+  },
+  {
+    "id": 168,
+    "name": "InventoryMasks",
+    "file": "src/list.c",
+    "line": 23
+  },
+  {
+    "id": 169,
+    "name": "InventoryNext",
+    "file": "src/list.c",
+    "line": 87
+  },
+  {
+    "id": 170,
+    "name": "InventoryNextWrap",
+    "file": "src/list.c",
+    "line": 113
+  },
+  {
+    "id": 171,
+    "name": "InventoryPrevious",
+    "file": "src/list.c",
+    "line": 129
+  },
+  {
+    "id": 172,
+    "name": "InventoryPreviousWrap",
+    "file": "src/list.c",
+    "line": 152
+  },
+  {
+    "id": 173,
+    "name": "PokemonSelectFirst",
+    "file": "src/list.c",
+    "line": 167
+  },
+  {
+    "id": 174,
+    "name": "PokemonInventoryUpdate",
+    "file": "src/list.c",
+    "line": 173
+  },
+  {
+    "id": 175,
+    "name": "PokemonInventoryRender",
+    "file": "src/list.c",
+    "line": 215
+  },
+  {
+    "id": 176,
+    "name": "ItemSelectFirst",
+    "file": "src/list.c",
+    "line": 365
+  },
+  {
+    "id": 177,
+    "name": "ItemInventoryUpdate",
+    "file": "src/list.c",
+    "line": 371
+  },
+  {
+    "id": 178,
+    "name": "ItemInventoryRender",
+    "file": "src/list.c",
+    "line": 407
+  },
+  {
+    "id": 179,
+    "name": "MotionReset",
+    "file": "src/motion.c",
+    "line": 8
+  },
+  {
+    "id": 180,
+    "name": "MotionCentroid",
+    "file": "src/motion.c",
+    "line": 27
+  },
+  {
+    "id": 181,
+    "name": "MotionProcess",
+    "file": "src/motion.c",
+    "line": 50
+  },
+  {
+    "id": 182,
+    "name": "MotionEstimate",
+    "file": "src/motion.c",
+    "line": 157
+  },
+  {
+    "id": 183,
+    "name": "MenuReset",
+    "file": "src/option.c",
+    "line": 28
+  },
+  {
+    "id": 184,
+    "name": "MainMenuUpdate",
+    "file": "src/option.c",
+    "line": 35
+  },
+  {
+    "id": 185,
+    "name": "MainMenuRender",
+    "file": "src/option.c",
+    "line": 156
+  },
+  {
+    "id": 186,
+    "name": "InputInit",
+    "file": "src/pad.c",
+    "line": 12
+  },
+  {
+    "id": 187,
+    "name": "InputScan",
+    "file": "src/pad.c",
+    "line": 39
+  },
+  {
+    "id": 188,
+    "name": "InputPressed",
+    "file": "src/pad.c",
+    "line": 100
+  },
+  {
+    "id": 189,
+    "name": "RollEncounter",
+    "file": "src/poketrace.c",
+    "line": 30
+  },
+  {
+    "id": 190,
+    "name": "RadarInit",
+    "file": "src/poketrace.c",
+    "line": 104
+  },
+  {
+    "id": 191,
+    "name": "SelectGrass",
+    "file": "src/poketrace.c",
+    "line": 118
+  },
+  {
+    "id": 192,
+    "name": "RadarUpdate",
+    "file": "src/poketrace.c",
+    "line": 168
+  },
+  {
+    "id": 193,
+    "name": "RadarRender",
+    "file": "src/poketrace.c",
+    "line": 222
+  },
+  {
+    "id": 194,
+    "name": "RadarFailureUpdate",
+    "file": "src/poketrace.c",
+    "line": 282
+  },
+  {
+    "id": 195,
+    "name": "RadarFailureRender",
+    "file": "src/poketrace.c",
+    "line": 293
+  },
+  {
+    "id": 196,
+    "name": "MotionSessionWake",
+    "file": "src/power.c",
+    "line": 11
+  },
+  {
+    "id": 197,
+    "name": "MotionActivityCheck",
+    "file": "src/power.c",
+    "line": 30
+  },
+  {
+    "id": 198,
+    "name": "MotionSessionStart",
+    "file": "src/power.c",
+    "line": 48
+  },
+  {
+    "id": 199,
+    "name": "MotionSessionEnd",
+    "file": "src/power.c",
+    "line": 63
+  },
+  {
+    "id": 200,
+    "name": "MotionSessionIdleCheck",
+    "file": "src/power.c",
+    "line": 71
+  },
+  {
+    "id": 201,
+    "name": "IRQ0Interrupt",
+    "file": "src/power.c",
+    "line": 79
+  },
+  {
+    "id": 202,
+    "name": "IRQ1Interrupt",
+    "file": "src/power.c",
+    "line": 88
+  },
+  {
+    "id": 203,
+    "name": "IRQAECInterrupt",
+    "file": "src/power.c",
+    "line": 94
+  },
+  {
+    "id": 204,
+    "name": "ADCInterrupt",
+    "file": "src/power.c",
+    "line": 100
+  },
+  {
+    "id": 205,
+    "name": "StoreTotalSteps",
+    "file": "src/power.c",
+    "line": 105
+  },
+  {
+    "id": 206,
+    "name": "TimerB1Init",
+    "file": "src/resetprg.c",
+    "line": 34
+  },
+  {
+    "id": 207,
+    "name": "IrComplete",
+    "file": "src/resetprg.c",
+    "line": 73
+  },
+  {
+    "id": 208,
+    "name": "PowerOnReset",
+    "file": "src/resetprg.c",
+    "line": 203
+  },
+  {
+    "id": 209,
+    "name": "StatusApplyTime",
+    "file": "src/resetprg.c",
+    "line": 264
+  },
+  {
+    "id": 210,
+    "name": "CommitStagedWalk",
+    "file": "src/resetprg.c",
+    "line": 284
+  },
+  {
+    "id": 211,
+    "name": "WalkStartCommit",
+    "file": "src/resetprg.c",
+    "line": 340
+  },
+  {
+    "id": 212,
+    "name": "WalkEndClear",
+    "file": "src/resetprg.c",
+    "line": 421
+  },
+  {
+    "id": 213,
+    "name": "ClearWattsInventory",
+    "file": "src/resetprg.c",
+    "line": 454
+  },
+  {
+    "id": 214,
+    "name": "TimerB1Interrupt",
+    "file": "src/resetprg.c",
+    "line": 464
+  },
+  {
+    "id": 215,
+    "name": "RtcDispatch",
+    "file": "src/rtc.c",
+    "line": 41
+  },
+  {
+    "id": 216,
+    "name": "PokemonMinuteTick",
+    "file": "src/rtc.c",
+    "line": 61
+  },
+  {
+    "id": 217,
+    "name": "RtcHourUpdate",
+    "file": "src/rtc.c",
+    "line": 72
+  },
+  {
+    "id": 218,
+    "name": "RtcDayRollover",
+    "file": "src/rtc.c",
+    "line": 101
+  },
+  {
+    "id": 219,
+    "name": "BinaryToBcd",
+    "file": "src/rtc.c",
+    "line": 150
+  },
+  {
+    "id": 220,
+    "name": "RtcSetTime",
+    "file": "src/rtc.c",
+    "line": 157
+  },
+  {
+    "id": 221,
+    "name": "RtcReadStable",
+    "file": "src/rtc.c",
+    "line": 194
+  },
+  {
+    "id": 222,
+    "name": "RtcQuarterSecondInterrupt",
+    "file": "src/rtc.c",
+    "line": 222
+  },
+  {
+    "id": 223,
+    "name": "RtcHalfSecondInterrupt",
+    "file": "src/rtc.c",
+    "line": 229
+  },
+  {
+    "id": 224,
+    "name": "RtcSecondInterrupt",
+    "file": "src/rtc.c",
+    "line": 235
+  },
+  {
+    "id": 225,
+    "name": "RtcMinuteInterrupt",
+    "file": "src/rtc.c",
+    "line": 260
+  },
+  {
+    "id": 226,
+    "name": "RtcHourInterrupt",
+    "file": "src/rtc.c",
+    "line": 273
+  },
+  {
+    "id": 227,
+    "name": "EepromSelfTest",
+    "file": "src/selftest.c",
+    "line": 51
+  },
+  {
+    "id": 228,
+    "name": "RtcStartupCheck",
+    "file": "src/selftest.c",
+    "line": 106
+  },
+  {
+    "id": 229,
+    "name": "FactoryAccelDump",
+    "file": "src/selftest.c",
+    "line": 131
+  },
+  {
+    "id": 230,
+    "name": "FactoryAdcCalibrate",
+    "file": "src/selftest.c",
+    "line": 186
+  },
+  {
+    "id": 231,
+    "name": "DiagnosticsGray",
+    "file": "src/selftest.c",
+    "line": 217
+  },
+  {
+    "id": 232,
+    "name": "DiagnosticsInit",
+    "file": "src/selftest.c",
+    "line": 280
+  },
+  {
+    "id": 233,
+    "name": "DiagnosticsSecond",
+    "file": "src/selftest.c",
+    "line": 292
+  },
+  {
+    "id": 234,
+    "name": "DiagnosticsUpdate",
+    "file": "src/selftest.c",
+    "line": 310
+  },
+  {
+    "id": 235,
+    "name": "DiagnosticsBorder",
+    "file": "src/selftest.c",
+    "line": 466
+  },
+  {
+    "id": 236,
+    "name": "DiagnosticsRender",
+    "file": "src/selftest.c",
+    "line": 530
+  },
+  {
+    "id": 237,
+    "name": "ThresholdInit",
+    "file": "src/selftest.c",
+    "line": 630
+  },
+  {
+    "id": 238,
+    "name": "ThresholdUpdate",
+    "file": "src/selftest.c",
+    "line": 644
+  },
+  {
+    "id": 239,
+    "name": "ThresholdRender",
+    "file": "src/selftest.c",
+    "line": 651
+  },
+  {
+    "id": 240,
+    "name": "ThresholdFailureRender",
+    "file": "src/selftest.c",
+    "line": 711
+  },
+  {
+    "id": 241,
+    "name": "BootSignatureWrite",
+    "file": "src/selftest.c",
+    "line": 718
+  },
+  {
+    "id": 242,
+    "name": "BootSignatureValid",
+    "file": "src/selftest.c",
+    "line": 731
+  },
+  {
+    "id": 243,
+    "name": "HardwareSetup",
+    "file": "src/setup.c",
+    "line": 7
+  },
+  {
+    "id": 244,
+    "name": "SaveReset",
+    "file": "src/user.c",
+    "line": 30
+  },
+  {
+    "id": 245,
+    "name": "StatusRestoreFlags",
+    "file": "src/user.c",
+    "line": 50
+  },
+  {
+    "id": 246,
+    "name": "PersistentReset",
+    "file": "src/user.c",
+    "line": 65
+  },
+  {
+    "id": 247,
+    "name": "BootRestore",
+    "file": "src/user.c",
+    "line": 127
+  },
+  {
+    "id": 248,
+    "name": "RtcRestore",
+    "file": "src/user.c",
+    "line": 154
+  },
+  {
+    "id": 249,
+    "name": "TrainerInit",
+    "file": "src/viewer.c",
+    "line": 27
+  },
+  {
+    "id": 250,
+    "name": "TrainerUpdate",
+    "file": "src/viewer.c",
+    "line": 38
+  },
+  {
+    "id": 251,
+    "name": "TrainerTime",
+    "file": "src/viewer.c",
+    "line": 99
+  },
+  {
+    "id": 252,
+    "name": "TrainerHistory",
+    "file": "src/viewer.c",
+    "line": 165
+  },
+  {
+    "id": 253,
+    "name": "TrainerEndingMetrics",
+    "file": "src/viewer.c",
+    "line": 210
+  },
+  {
+    "id": 254,
+    "name": "TrainerEndingReward",
+    "file": "src/viewer.c",
+    "line": 236
+  },
+  {
+    "id": 255,
+    "name": "TrainerRender",
+    "file": "src/viewer.c",
+    "line": 250
+  }
+]

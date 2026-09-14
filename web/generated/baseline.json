@@ -1,0 +1,7 @@
+{
+  "bytes": 49152,
+  "sha256": "f9e210a3b74afbbd12c5a66a51cc05cb9fbac986805ff0a3bfb4be6074d15607",
+  "result": "IDENTICAL: 49,152 / 49,152 bytes",
+  "purpose": "Untouched snapshot baseline; browser port is a deliberate source fork.",
+  "compiler": "CH38 6.02.02 / OPTLNK 9.05.00"
+}

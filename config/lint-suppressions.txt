@@ -1,0 +1,9 @@
+// Cppcheck 2.21 treats unsigned short as signed int after promotion even when
+// the custom platform gives both 16 bits. CH38 promotes it to unsigned int.
+// The first two expressions walk 16-bit EEPROM addresses; the third adds a
+// page to an EEPROM address. The battle subtraction is unsigned and its
+// subtrahend is capped at the current watt balance. See docs/build.md.
+integerOverflow:src/friend.c:375
+integerOverflow:src/friend.c:376
+integerOverflow:src/resetprg.c:313
+integerOverflowCond:src/battle.c:408

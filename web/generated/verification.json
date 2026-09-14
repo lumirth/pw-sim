@@ -1,0 +1,21 @@
+{
+  "passed": 16,
+  "results": [
+    "Freestanding WebAssembly: zero function imports.",
+    "64k-full-rom.bin: boots, draws, 16 Hz foreground / 4 Hz display / 1 Hz RTC, input.",
+    "current-save-64KiB.bin: boots, draws, 16 Hz foreground / 4 Hz display / 1 Hz RTC, input.",
+    "eeprom-editor-sample.bin: boots, draws, 16 Hz foreground / 4 Hz display / 1 Hz RTC, input.",
+    "furret-eeprom-64KiB.bin: boots, draws, 16 Hz foreground / 4 Hz display / 1 Hz RTC, input.",
+    "pp-attachment-53676.bin: boots, draws, 16 Hz foreground / 4 Hz display / 1 Hz RTC, input.",
+    "pp-attachment-54370.bin: boots, draws, 16 Hz foreground / 4 Hz display / 1 Hz RTC, input.",
+    "pp-attachment-55107.bin: boots, draws, 16 Hz foreground / 4 Hz display / 1 Hz RTC, input.",
+    "project-pokemon-pweep-64KiB.bin: boots, draws, 16 Hz foreground / 4 Hz display / 1 Hz RTC, input.",
+    "Blank EEPROM: unpaired boot and offline IR timeout.",
+    "FFT at 2 Hz → cadence 4096 Q9 → 32 steps, Watts; big-endian EEPROM export/reimport, both checksums, graphics preserved.",
+    "Snapshot restore and independent Wasm fork: byte-for-byte deterministic execution.",
+    "Physics still: 0 steps / 20 device seconds, no fault.",
+    "Physics walk: 32 steps / 20 device seconds, no fault.",
+    "Physics fan: 0 steps / 20 device seconds, no fault.",
+    "Real button path: home → menu → Dowsing; spends exactly 3 Watts."
+  ]
+}

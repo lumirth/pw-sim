@@ -1,0 +1,36 @@
+// Runs the real worker scheduler against a deterministic wall clock.
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+let now=0,loop,frames=[];
+globalThis.performance={now:()=>now};
+globalThis.setInterval=fn=>{loop=fn;};
+globalThis.onmessage=null;
+globalThis.postMessage=d=>frames.push(d);
+globalThis.fetch=async path=>({arrayBuffer:async()=>{const b=await fs.readFile(new URL(path,import.meta.url));return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);}});
+await import('./runtime-worker.js');
+await onmessage({data:{type:'init'}});
+await onmessage({data:{type:'physics',value:{mode:'walk'}}});
+frames=[];
+for(now=8;now<=1000;now+=8)loop();
+const poses=frames.filter(d=>d.type===(frames.some(f=>f.type==='pose')?'pose':'frame'));
+const rate=poses.length;
+await onmessage({data:{type:'pause',value:true}});
+const latest=frames.filter(d=>d.type==='frame').at(-1);
+console.log(JSON.stringify({poseUpdatesPerSecond:rate,firmwareTicks:latest.stats[1],lcdPresentations:latest.stats[3]}));
+assert.ok(rate>=50,`Motion receives only ${rate} updates/s; expected at least 50.`);
+assert.equal(latest.stats[1],16,'Original foreground cadence must remain 16 Hz.');
+const deliver=data=>onmessage({data});
+function advanceWall(ms){const end=now+ms;while(now<end){now+=8;loop();}}
+const lastFrame=()=>frames.filter(d=>d.type==='frame').at(-1);
+await deliver({type:'speed',value:4});await deliver({type:'pause',value:false});
+advanceWall(1000);await deliver({type:'pause',value:true});
+assert.equal(lastFrame().stats[0],5000,'4× playback advances four device seconds in one wall second.');
+await deliver({type:'checkpoint'});const expected=frames.filter(d=>d.type==='checkpoint').at(-1).state;
+const timeline=frames.filter(d=>d.type==='history').at(-1).items;
+const firstSecond=timeline.find(d=>d.time===1000);assert.ok(firstSecond);
+await deliver({type:'rewind',id:firstSecond.id});assert.equal(lastFrame().stats[0],1000);assert.equal(lastFrame().paused,true);
+await deliver({type:'pause',value:false});advanceWall(1000);await deliver({type:'pause',value:true});
+await deliver({type:'checkpoint'});const replay=frames.filter(d=>d.type==='checkpoint').at(-1).state;
+assert.deepEqual(new Uint8Array(replay.memory),new Uint8Array(expected.memory),'Rewind reproduces the entire native memory state.');
+assert.deepEqual(replay.physics,expected.physics,'Rewind reproduces physical state.');
+console.log('4× pacing, automatic history, rewind and deterministic replay: passed.');
