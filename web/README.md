@@ -160,6 +160,20 @@ spring and internal damping torque unwind it. The default material estimate is
 3 µN·m/rad at 10 cm and 1 mm diameter; stiffness scales with inverse length and
 the fourth power of diameter. This is a flexible cotton-twine approximation,
 not a measurement of a particular cord. Three matte, helical plies follow the slack curve at the selected twine diameter. Knots, rope self-contact, and bending stiffness are not simulated.
+
+Swing loses energy where taut twine bends at its fixed support. The equivalent
+rotational viscous coefficient is 200 µN·m·s/rad for 1 mm twine, scaled by diameter
+to the fourth power. Tangential resistance at the body attachment is
+`F = -C * v_tangent / length²`. An implicit impulse limits the resistance at each
+physics step so high damping cannot reverse velocity and add energy. Slack cord
+applies no bending resistance. This coefficient is a tunable material estimate;
+it does not establish a match to a physical twine sample. The **Bend damping**
+control adjusts it and **Twine loss** shows its instantaneous power.
+Extra whole-body damping defaults to zero; aerodynamic drag is still active.
+A 28.65° release on the default 10 cm cord has a peak displacement of 0.94 mm
+during the sixteenth second, compared with 18.62 mm before the attachment loss
+was added. This is a regression scenario, not hardware validation.
+
 The sensor receives body-local specific force at the simulated centre of mass;
 it is quantized to signed counts. Actual sensor mounting and transfer response
 have not been measured. Walking mode supplies a repeatable synthetic gait with 36 mm vertical amplitude
@@ -192,6 +206,8 @@ The browser build has its own compiler, source list, and Wasm hash in
   second at 1×, with correct accelerated time and rewind behavior.
 - Rigid-body toppling, ground contact, mass-dependent wind response, fixed mode,
   slack and tension, grip modes, settled holding, twist decay, and fan sweep.
+  Twine release checks cover decay, absent damping during slack and free flight,
+  and energy stability with the thickest cord and lightest body in the controls.
 - All 16 supplied sound-bank sequences produce native tone events. A 9,796 µs
   rest survives transport into the actual audio scheduler. Normal speed, slow
   playback, and recovery from a clock stall are exercised.

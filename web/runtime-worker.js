@@ -7,7 +7,7 @@ const stats=()=>Array.from(u32(e.pw_stats(),34));
 function emit(){
  if(!ready)return;
  const counts=u32(e.pw_counts(),512).slice(),delta=counts.map((n,i)=>n-counters[i]);counters=counts;
- postMessage({type:'frame',serial,stats:stats(),pixels:u8(e.pw_pixels(),6144).slice(),counts,delta,work:u8(e.pw_workspace(),1802).slice(),viewBytes:u8(e.pw_view_bytes(),18).slice(),spectrum:new Uint16Array(e.memory.buffer,e.pw_spectrum(),32).slice(),samples:new Int8Array(e.memory.buffer,e.pw_ring_samples(),192).slice(),heat:u32(e.pw_read_heat(),512).slice(),writeHeat:u32(e.pw_write_heat(),512).slice(),pose:pose(physics),accel:physics.accel,physical:{contacts:physics.contacts,kinetic:physics.kinetic,tension:physics.tension,av:physics.av},paused,label,speed,compute:run?compute/run:0,imports});
+ postMessage({type:'frame',serial,stats:stats(),pixels:u8(e.pw_pixels(),6144).slice(),counts,delta,work:u8(e.pw_workspace(),1802).slice(),viewBytes:u8(e.pw_view_bytes(),18).slice(),spectrum:new Uint16Array(e.memory.buffer,e.pw_spectrum(),32).slice(),samples:new Int8Array(e.memory.buffer,e.pw_ring_samples(),192).slice(),heat:u32(e.pw_read_heat(),512).slice(),writeHeat:u32(e.pw_write_heat(),512).slice(),pose:pose(physics),accel:physics.accel,physical:{contacts:physics.contacts,kinetic:physics.kinetic,tension:physics.tension,bendPower:physics.bendPower,av:physics.av},paused,label,speed,compute:run?compute/run:0,imports});
 }
 function capture(){return {memory:e.memory.buffer.slice(0),physics:structuredClone(physics),label,serial,substep,pendingRelease,pressedAt,keys,run};}
 function historyNotice(){postMessage({type:'history',selected:selectedHistory,items:history.map(h=>({id:h.id,time:h.time,view:h.view,steps:h.steps}))});}

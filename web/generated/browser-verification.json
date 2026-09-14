@@ -27,7 +27,8 @@
       "Reset settings",
       "4x playback",
       "Walking input updates native steps",
-      "Off-centre mouse drag visibly rotates the device under the string"
+      "Off-centre mouse drag visibly rotates the device under the string",
+      "Changed bend damping to 400 and extra damping to 1; Reset settings restored 200 and 0"
     ],
     "defaults": {
       "clip": true,
@@ -35,7 +36,23 @@
       "grip": "point",
       "twineLengthCm": 10,
       "twineDiameterMm": 1,
-      "reset": "Changed clip off and grip firm, then Reset settings restored clip on, 21.9 g, point grip"
+      "reset": "Changed clip off and grip firm, then Reset settings restored clip on, 21.9 g, point grip",
+      "extraDampingPerSecond": 0,
+      "bendDampingMicroNewtonMeterSecondsPerRadian": 200
+    },
+    "twineRelease": {
+      "initialDeviceTime": "00:18.31",
+      "initialKineticEnergyMilliJoules": 1.13,
+      "initialBendingLossMilliWatts": 0.3,
+      "settledDeviceTime": "01:01.06",
+      "settledKineticEnergyMilliJoulesDisplayed": 0,
+      "settledAngularVelocityDisplayed": [
+        0,
+        0,
+        0
+      ],
+      "settledTensionMilliNewtons": 214.8,
+      "visual": "Off-centre point grip rotates the shell; after release it settles below the anchor at 1x playback"
     }
   },
   "limits": [

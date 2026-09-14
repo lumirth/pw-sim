@@ -2,7 +2,7 @@ import {World,Body,Vec3,Quaternion,Cylinder,Box,Plane,Material,ContactMaterial,C
 export const DT=1/256;
 import {defaults} from './physics-defaults.js';
 export {defaults};
-export function createPhysics(){return {...defaults,x:0,y:0,z:0,vx:0,vy:0,vz:0,q:[0,0,0,1],av:[0,0,0],theta:0,phi:0,t:0,drag:null,accel:[0,32,0],contacts:0,kinetic:0,tension:0,twist:0,twistAngle:0,revision:0};}
+export function createPhysics(){return {...defaults,x:0,y:0,z:0,vx:0,vy:0,vz:0,q:[0,0,0,1],av:[0,0,0],theta:0,phi:0,t:0,drag:null,accel:[0,32,0],contacts:0,kinetic:0,tension:0,bendPower:0,twist:0,twistAngle:0,revision:0};}
 const cache=new WeakMap();
 const vec=a=>new Vec3(...a),arr=v=>[v.x,v.y,v.z];
 // A massless, inextensible rope: tension only. Slack produces no constraint.
@@ -68,6 +68,24 @@ export function stepPhysics(p){const {world,body:b,rope}=system(p);p.t+=DT;world
   }else torqueLocal.set(-b.inertia.x*5*angularLocal.x,-b.inertia.y*5*angularLocal.y,-b.inertia.z*5*angularLocal.z);
   b.torque.vadd(b.quaternion.vmult(torqueLocal),b.torque);
  }
+ // Bending at the support dissipates energy only while the cord is taut.
+ // A rotational dashpot C becomes a tangential force -C*v/L² at the
+ // attachment. Its coefficient belongs to the cord, not to the body mass.
+ p.bendPower=0;
+ if(rope){
+  const offset=b.quaternion.vmult(rope.local),delta=b.position.vadd(offset).vsub(rope.bodyA.position),length=delta.length();
+  if(length>=p.length-.00001){
+   const axis=delta.scale(1/length),velocity=b.angularVelocity.cross(offset).vadd(b.velocity),tangent=velocity.vsub(axis.scale(velocity.dot(axis))),speed=tangent.length();
+   if(speed>1e-9){
+    const direction=tangent.scale(1/speed),moment=offset.cross(direction),mobility=b.invMass+moment.dot(b.invInertiaWorld.vmult(moment));
+    const c=(p.bendDamping??defaults.bendDamping)*1e-6*(p.cordDiameter/.001)**4/(length*length);
+    // Implicit impulse damping stays passive even with a light body or a
+    // thick cord. It cannot reverse attachment velocity in a single step.
+    const resistance=c/(1+c*DT*mobility);
+    b.applyForce(tangent.scale(-resistance),offset);p.bendPower=resistance*speed*speed;
+   }
+  }
+ }
  // Track twist independently of quaternion wrap. The cord exerts a small
  // torsional spring and damping torque about its current attachment axis.
  if(rope&&!p.lockFacing){
@@ -86,8 +104,9 @@ export function stepPhysics(p){const {world,body:b,rope}=system(p);p.t+=DT;world
  if(p.mode==='walk'){const w=p.cadence*2*Math.PI;specific.y+=.036*w*w*Math.sin(w*p.t);}
  const local=b.quaternion.conjugate().vmult(specific);p.accel=arr(local).map(v=>Math.max(-128,Math.min(127,Math.round(v/9.80665*32))));
  [p.x,p.y,p.z]=arr(b.position);[p.vx,p.vy,p.vz]=arr(b.velocity);p.q=[b.quaternion.x,b.quaternion.y,b.quaternion.z,b.quaternion.w];p.av=arr(b.angularVelocity);p.theta=-2*Math.atan2(p.q[2],p.q[3]);p.phi=2*Math.atan2(p.q[1],p.q[3]);p.contacts=world.contacts.length;p.tension=rope?.eq.enabled?Math.abs(rope.eq.multiplier):0;
- p.kinetic=.5*p.mass*b.velocity.lengthSquared()+.5*(b.inertia.x*p.av[0]**2+b.inertia.y*p.av[1]**2+b.inertia.z*p.av[2]**2);
+ const spin=b.quaternion.conjugate().vmult(b.angularVelocity);
+ p.kinetic=.5*p.mass*b.velocity.lengthSquared()+.5*(b.inertia.x*spin.x**2+b.inertia.y*spin.y**2+b.inertia.z*spin.z**2);
  return p.accel;
 }
 export function advancePhysics(p){for(let i=0;i<16;i++)stepPhysics(p);return p.accel;}
-export function pose(p){return {environment:p.environment,x:p.x,y:p.y+(p.mode==='walk'?-.036*Math.sin(p.cadence*2*Math.PI*p.t):0),z:p.z,q:p.q,av:p.av,theta:p.theta,phi:p.phi,t:p.t,fan:p.mode==='fan'?(p.wind||8):p.wind,fanHeight:p.fanHeight,tether:p.tether,length:p.length,cordDiameter:p.cordDiameter,diameter:p.diameter,clip:p.clip,direction:p.direction,fanDirection:fanDirection(p),twist:p.twist,contacts:p.contacts,kinetic:p.kinetic,tension:p.tension};}
+export function pose(p){return {environment:p.environment,x:p.x,y:p.y+(p.mode==='walk'?-.036*Math.sin(p.cadence*2*Math.PI*p.t):0),z:p.z,q:p.q,av:p.av,theta:p.theta,phi:p.phi,t:p.t,fan:p.mode==='fan'?(p.wind||8):p.wind,fanHeight:p.fanHeight,tether:p.tether,length:p.length,cordDiameter:p.cordDiameter,diameter:p.diameter,clip:p.clip,direction:p.direction,fanDirection:fanDirection(p),twist:p.twist,contacts:p.contacts,kinetic:p.kinetic,tension:p.tension,bendPower:p.bendPower};}
