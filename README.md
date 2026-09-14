@@ -1,33 +1,21 @@
-# Pokéwalker
+# Pokéwalker browser port
 
-A C reconstruction of the Pokéwalker firmware, intended to reproduce the
-complete 49,152-byte retail image while making its behavior readable.
-
-The project is being prepared privately. Source and build qualification are
-still in progress.
-
-## Build
-
-Install Python 3.11 or newer and Ninja. On macOS, install Rosetta 2 as well.
-Supply your retail firmware image and a supported Renesas H8 compiler suite:
+An isolated experiment that recompiles the Pokéwalker C firmware to WebAssembly.
+The firmware runs in a browser worker. Three.js renders the supplied device model;
+a rigid-body simulation provides motion input to the original FFT and step code.
 
 ```sh
-python configure.py --rom path/to/retail.bin --compiler path/to/h8v6202u.exe
-ninja
+npm run setup --prefix web
+npm run build --prefix web
+npm test --prefix web
+npm start --prefix web
 ```
 
-Use `python3` if that is your Python command. Configuration accepts a complete
-6.02.01 or 6.02.02 installation, the corresponding updater executable, or the
-documented 6.02.02 ZIP. On macOS it downloads a tested Wibo release. Subsequent
-builds work offline.
+Open http://127.0.0.1:8765/. The build requires LLVM Clang with WebAssembly support,
+Python 3, and Node.js. The local EEPROM fixtures and supplied model are already
+present in this working directory and are excluded from Git.
 
-The default build compares every output byte with the supplied ROM and fails
-on any difference. Success prints:
-
-```text
-IDENTICAL: 49,152 / 49,152 bytes
-```
-
-Retail firmware, extracted graphics and compiler files are not distributed here.
-See [build instructions](docs/build.md) for host setup and exact input identities,
-and [source notes](docs/source.md) for organization and conventions.
+See [build and port notes](web/README.md) for controls, input setup, architecture,
+verification, and limits. [Original release notes](docs/original-release.md)
+describe the source baseline. The experimental source no longer targets a
+byte-identical H8 ROM.

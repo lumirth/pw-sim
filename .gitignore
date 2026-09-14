@@ -20,3 +20,7 @@ __pycache__/
 /web/generated/*.h
 /web/source/
 /web/firmware.wasm
+
+/web/generated/firmware.map
+/web/generated/build.log
+/web/generated/lcd-*

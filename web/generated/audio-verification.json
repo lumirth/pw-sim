@@ -1,0 +1,108 @@
+{
+  "events": [
+    {
+      "us": 62531,
+      "period": 24,
+      "mode": 2
+    },
+    {
+      "us": 129913,
+      "period": 0,
+      "mode": 0
+    },
+    {
+      "us": 139709,
+      "period": 27,
+      "mode": 2
+    },
+    {
+      "us": 283905,
+      "period": 0,
+      "mode": 0
+    }
+  ],
+  "shortRestUs": 9796,
+  "bank": [
+    {
+      "id": 0,
+      "transitions": 4,
+      "tones": 2
+    },
+    {
+      "id": 1,
+      "transitions": 6,
+      "tones": 3
+    },
+    {
+      "id": 2,
+      "transitions": 2,
+      "tones": 1
+    },
+    {
+      "id": 3,
+      "transitions": 4,
+      "tones": 2
+    },
+    {
+      "id": 4,
+      "transitions": 4,
+      "tones": 2
+    },
+    {
+      "id": 5,
+      "transitions": 16,
+      "tones": 8
+    },
+    {
+      "id": 6,
+      "transitions": 22,
+      "tones": 11
+    },
+    {
+      "id": 7,
+      "transitions": 36,
+      "tones": 18
+    },
+    {
+      "id": 8,
+      "transitions": 10,
+      "tones": 5
+    },
+    {
+      "id": 9,
+      "transitions": 14,
+      "tones": 7
+    },
+    {
+      "id": 10,
+      "transitions": 66,
+      "tones": 33
+    },
+    {
+      "id": 11,
+      "transitions": 4,
+      "tones": 2
+    },
+    {
+      "id": 12,
+      "transitions": 4,
+      "tones": 2
+    },
+    {
+      "id": 13,
+      "transitions": 4,
+      "tones": 2
+    },
+    {
+      "id": 14,
+      "transitions": 6,
+      "tones": 3
+    },
+    {
+      "id": 15,
+      "transitions": 16,
+      "tones": 8
+    }
+  ],
+  "clockChecks": "short rests, slow playback, stall recovery"
+}

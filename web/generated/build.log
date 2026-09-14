@@ -1,4 +1,0 @@
-/private/tmp/pw-native-browser-uitzjpj6/pw/web/generated/selftest.c:218:1: warning: non-void function does not return a value [-Wreturn-type]
-  218 | }
-      | ^
-1 warning generated.

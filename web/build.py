@@ -5,10 +5,14 @@ import subprocess, os, re, json, hashlib, shutil
 ROOT=Path(__file__).resolve().parents[1]
 os.chdir(ROOT)
 OUT=ROOT/'web/generated';OUT.mkdir(exist_ok=True)
+registers=re.findall(r'^extern (volatile (?:struct|union) \w+ \w+;)',(ROOT/'include/iodefine.h').read_text(),re.M)
+if not registers:raise SystemExit('No browser register declarations found in iodefine.h')
+(OUT/'registers.c').write_text('#include "iodefine.h"\n'+'\n'.join(registers)+'\n')
 subprocess.run(['python3',str(ROOT/'web/generate_endian.py')],check=True)
 for folder in ['src','include']:
  shutil.copytree(ROOT/folder,ROOT/'web/source'/folder,dirs_exist_ok=True)
-CC=os.environ.get('PW_WASM_CC','/opt/homebrew/opt/llvm/bin/clang')
+CC=os.environ.get('PW_WASM_CC') or (str(Path('/opt/homebrew/opt/llvm/bin/clang')) if Path('/opt/homebrew/opt/llvm/bin/clang').exists() else shutil.which('clang'))
+if not CC:raise SystemExit('Install LLVM Clang with the WebAssembly linker, or set PW_WASM_CC.')
 EXCLUDE={'dbsct','accelerometer','battery','m95512','irc'}
 sources=[p for p in sorted((ROOT/'src').glob('*.c')) if p.stem not in EXCLUDE]
 flags=['--target=wasm32-unknown-unknown','-std=gnu99','-O2','-g','-ffreestanding','-fno-builtin','-fno-strict-aliasing','-fwrapv','-fpack-struct=2','-Wno-unknown-pragmas','-Wno-incompatible-pointer-types-discards-qualifiers','-Wno-constant-conversion','-Wno-pointer-to-int-cast','-Wno-int-to-pointer-cast','-Wno-deprecated-non-prototype','-Iinclude','-Iweb','-Iweb/compat','-Iweb/generated']

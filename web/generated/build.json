@@ -1,8 +1,8 @@
 {
   "target": "wasm32-unknown-unknown",
   "compiler": "Homebrew clang version 23.1.1",
-  "wasmBytes": 370713,
-  "sha256": "30338ac310e92fc711a5370c2a5a92d323bd8b5ce376a70dd0f0a2b53eead68a",
+  "wasmBytes": 372898,
+  "sha256": "eb9a498eaef95c11ec57ace42a620c4f053fef09fecf95958c192de1d65fffcd",
   "sources": [
     "src/battle.c",
     "src/beep.c",

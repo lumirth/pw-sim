@@ -47,6 +47,14 @@ static u32 ioFaults,scratchHigh;
 static unsigned long long clockUs,quarterDeadline,secondDeadline,mainDeadline,beepDeadline;
 static unsigned long long irDeadline;
 static u8 keys;
+static u32 beepRemainder;
+double pw_time_us(void){return (double)clockUs;}
+static u32 audioEvents[1024][4],audioHead,audioLastPeriod,audioLastMode;
+u32 pw_audio_period(void){return (g_task==BeepTick&&(TW.TMRW.BYTE&3)&&TW.GRA&&g_ui.outputMode&&(TW.GRB!=TW.GRA||TW.GRC!=TW.GRA))?(u32)TW.GRA+1:0;}
+u32 pw_audio_events(void){return (u32)audioEvents;}
+u32 pw_audio_head(void){return audioHead;}
+static void captureAudio(void){u32 period=pw_audio_period(),mode=period?g_ui.outputMode:0;if(period==audioLastPeriod&&mode==audioLastMode)return;u32 *event=audioEvents[audioHead++&1023];event[0]=(u32)clockUs;event[1]=(u32)(clockUs>>32);event[2]=period;event[3]=mode;audioLastPeriod=period;audioLastMode=mode;}
+
 
 void *memcpy(void *dst,const void *src,size_t n){u8 *d=dst;const u8*s=src;while(n--)*d++=*s++;return dst;}
 void *memset(void *dst,int v,size_t n){u8*d=dst;while(n--)*d++=(u8)v;return dst;}
@@ -122,7 +130,8 @@ void pw_sensor(s32 x,s32 y,s32 z){sensor[0]=x;sensor[1]=y;sensor[2]=z;}
 void pw_boot(void){
  memset(&g_state,0,sizeof(g_state));memset(&g_ui,0,sizeof(g_ui));memset(&g_work,0,sizeof(g_work));memset(lcd,0,sizeof(lcd));memset(traceCount,0,sizeof(traceCount));memset(readHeat,0,sizeof(readHeat));memset(writeHeat,0,sizeof(writeHeat));
  memset(lastSpectrum,0,sizeof(lastSpectrum));memset(lastSamples,0,sizeof(lastSamples));
- clockUs=0;mainTicks=rtcTicks=lcdFrames=fftEpochs=eepromReads=eepromWrites=traceHead=scratchHigh=0;keys=0;lastCadence=0;lcdArgument=lcdX=lcdPage=lcdPlane=lcdBank=lcdSleeping=0;g_task=0;g_note=0;
+ memset(audioEvents,0,sizeof(audioEvents));audioHead=audioLastPeriod=audioLastMode=0;
+ clockUs=0;beepRemainder=0;mainTicks=rtcTicks=lcdFrames=fftEpochs=eepromReads=eepromWrites=traceHead=scratchHigh=0;keys=0;lastCadence=0;lcdArgument=lcdX=lcdPage=lcdPlane=lcdBank=lcdSleeping=0;g_task=0;g_note=0;
  initEndian();SSU.SSSR.BIT.TDRE=1;SSU.SSSR.BIT.TEND=1;SSU.SSSR.BIT.RDRF=1;SSU.SSRDR=0;IO.PDRB.BYTE=0;
  PowerOnReset();
  quarterDeadline=250000;secondDeadline=1000000;mainDeadline=62500;beepDeadline=0;
@@ -140,12 +149,19 @@ void pw_tick(void){
    clockUs=next;
    if(clockUs>=secondDeadline){u32 s=g_state.save.rtcSeconds+1;RTC.RSECDR.BYTE=bcd(s%60);RTC.RMINDR.BYTE=bcd((s/60)%60);RTC.RHRDR.BYTE=bcd((s/3600)%24);RtcSecondInterrupt();rtcTicks++;if(s%60==0)RtcMinuteInterrupt();if(s%3600==0)RtcHourInterrupt();secondDeadline+=1000000;}
    if(clockUs>=quarterDeadline){if(RTC.RTCCR2.BIT._025SEIE)RtcQuarterSecondInterrupt();quarterDeadline+=250000;}
-   if(g_task==BeepTick&&clockUs>=beepDeadline){TimerWInterrupt();BeepTick();beepDeadline=clockUs+((u32)TW.GRA+1)*1000000/32768;if(beepDeadline<=clockUs)beepDeadline=clockUs+31;}
+   if(g_task==BeepTick&&clockUs>=beepDeadline){TimerWInterrupt();BeepTick();unsigned long long phase=((u32)TW.GRA+1)*1000000ull+beepRemainder;beepDeadline=clockUs+phase/32768;beepRemainder=(u32)(phase%32768);if(beepDeadline<=clockUs)beepDeadline=clockUs+31;}
    if(clockUs>=mainDeadline){if(g_task!=BeepTick&&g_task){g_task();mainTicks++;if(g_task==BeepTick)beepDeadline=clockUs+31;}mainDeadline+=62500;}
+   captureAudio();
  }
  ticks++;
 }
 void pw_save(void){EepromMirrorWrite(EEPROM_SAVE_PRIMARY,EEPROM_SAVE_BACKUP,(u8*)&g_state.save,sizeof(SaveData));}
 u32 pw_probe_fft(u32 axis){if(axis>2)return 0;memset(g_work.motion.fftAccumulator,0,64);FftAccumulate((volatile s8*)lastSamples+axis*64);return(u32)g_work.motion.fftAccumulator;}
+u32 pw_play_score(u32 id){
+ if(id>=16)return 0;
+ BeepSetOutputMode(g_state.save.volume);BeepLoadScore((u8)id);
+ if(!BeepHasScore())return 0;
+ InstallTask(BeepTick);BeepEnableTimer();beepDeadline=clockUs+31;beepRemainder=0;return 1;
+}
 void pw_set_watts(u32 watts){g_state.save.watts=watts>9999?9999:watts;}
 void pw_set_seed(u32 seed){g_state.randomState=seed;}

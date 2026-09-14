@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-14",
+  "origin": "http://127.0.0.1:8765",
+  "browser": "Codex in-app browser",
+  "observed": {
+    "shell": "Corrected inward normals; bright red and white plastic checked against user photos",
+    "lcd": "Native Home and Menu screens on the supplied GLB screen geometry",
+    "frameRate": 60,
+    "audioLateEvents": 0,
+    "audioEventsAfterMenuInput": 5,
+    "audioLatencyMs": 92.5,
+    "import": "current-save-64KiB.bin accepted through the file chooser",
+    "exportLinkBytes": 65536,
+    "checkpoint": "01:53.93 restored, then single-step advanced to 01:54.00",
+    "branches": "Six independent instances completed 72 device seconds in 154.5 ms",
+    "views": [
+      "Scene",
+      "Memory",
+      "Source",
+      "History",
+      "Build"
+    ],
+    "controls": [
+      "Fan oscillation and sweep settings",
+      "Free-motion screen-up pose",
+      "Reset view",
+      "Reset settings",
+      "4x playback",
+      "Walking input updates native steps",
+      "Off-centre mouse drag visibly rotates the device under the string"
+    ],
+    "defaults": {
+      "clip": true,
+      "massGrams": 21.9,
+      "grip": "point",
+      "twineLengthCm": 10,
+      "twineDiameterMm": 1,
+      "reset": "Changed clip off and grip firm, then Reset settings restored clip on, 21.9 g, point grip"
+    }
+  },
+  "limits": [
+    "Embedded download completion event was not exposed; complete file payload verified in the visible save link",
+    "Physics calibrated to dimensions and total mass only; no hardware comparison",
+    "Right-drag orbit is implemented; wheel zoom and numeric view controls were exercised"
+  ]
+}
